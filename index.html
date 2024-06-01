@@ -1,0 +1,150 @@
+<!--
+MIT License
+
+Copyright (c) 2023 tygzy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8'>
+		<title>Oxygen</title>
+
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+		<meta name='keywords' content='css, html5, css framework, oxygen, classless'/>
+		<meta name='description' content='Oxygen CSS is a classless CSS framework, with responsive design, ability to customize and a light and dark theme.'/>
+		<meta name='robots' content='index'>
+
+		<link rel='stylesheet' href='oxygen.css'>
+		<link rel='canonical' href='https://oxygen-css.com'/>
+		<script src='indium.js'></script>
+		<script>
+			let other_work;
+			window.onload = (event) => {
+                other_work = new Dropdown(document.getElementById('other_work_origin'), document.getElementById('other_work_dropdown'), 0, 0);
+			};
+		</script>
+	</head>
+	<body>
+		<style>
+			.popup.active {
+				display: flex;
+			}
+		</style>
+
+		<div class='popup flex column' id='other_work_dropdown'>
+			<a href='https://silicon-css.com' target='_blank'>Silicon</a>
+			<a href='https://github.com/tygzy/indium' target='_blank'>Indium</a>
+		</div>
+		<header>
+			<nav>
+				<a href='https://tyler.contact' target='_blank'>The developer</a>
+				<a href='https://github.com/tygzy/oxygen' target='_blank'>GitHub</a>
+				<a href='oxygen.css' target='_blank'>Source</a>
+				<span>|</span>
+				<strong id='other_work_origin' onclick='other_work.open();'>Other work</strong>
+			</nav>
+		</header>
+		<aside>
+			<h2>Semantics</h2>
+			<p>All semantic tags have <code>--padding</code> padding.</p>
+			<div>
+				<h3>Main</h3>
+				<p><code>&lt;main&gt;</code> has forced 100% width.</p>
+			</div>
+			<div>
+				<h3>Section</h3>
+				<p><code>&lt;section&gt;</code> no unique styles.</p>
+			</div>
+			<div>
+				<h3>Article</h3>
+				<p><code>&lt;article&gt;</code> no unique styles.</p>
+			</div>
+			<div>
+				<h3>Aside</h3>
+				<p><code>&lt;aside&gt;</code> stays on the left side of the screen unless
+					<code>&lt;aside class='right'&gt;</code>
+					<br> which will place if on the right side of the screen.</p>
+			</div>
+			<div>
+				<h3>Header</h3>
+				<p><code>&lt;aside&gt;</code> fixed to the top of the screen. If it contains <code>&lt;nav&gt;</code>
+					padding will be removed to only use the padding from the navigation.</p>
+				<p>
+					If it is a child of <code>&lt;section&gt;</code> or <code>&lt;article&gt;</code>
+					it won't go to the top of the screen and padding is removed.
+				</p>
+			</div>
+			<div>
+				<h3>Footer</h3>
+				<p><code>&lt;aside&gt;</code> unset.</p>
+			</div>
+			<div>
+				<h3>Navigation</h3>
+				<p><code>&lt;nav&gt;</code> changes links to <code>--color-text</code> and no underline. Uses display <code>flex</code> with direction of <code>row</code> and gap of <code>calc(var(--gap) * 2)</code>.</p>
+			</div>
+		</aside>
+		<main>
+			<h1>oxygen.css</h1>
+			<p>Pure, classless CSS.</p>
+			<p>
+				oxygen.css is built with the knowledge from <a href='https://silicon-css.com/'>silicon.css</a>
+				to make a more semantic stylesheet while maintaining the classless ideal as much as possible.
+			</p>
+		</main>
+		<article>
+			<header>
+				<h2>Form elements</h2>
+			</header>
+			<p>
+				<code>&lt;form&gt;</code> uses flex-blox with direction of
+				<code>column</code> and uses <code>--gap</code> for a gap. <br> When using labels with inputs it's
+				recommended to contain the input and label in a <code>&lt;div&gt;.</code>
+			</p>
+			<form action=''>
+				<div>
+					<label for='text_input'>Text input</label>
+					<input type='text' placeholder='Text input' id='text_input'>
+				</div>
+				<div>
+					<input type='number'>
+				</div>
+				<div>
+					<input type='date'>
+				</div>
+				<fieldset>
+					<legend>Fieldset</legend>
+					<label>
+						<input type='checkbox' checked>
+						Checkbox
+					</label>
+					<label>
+						<input type='radio' checked>
+						Radio
+					</label>
+				</fieldset>
+				<div>
+					<input type='submit' value='Submit'>
+				</div>
+			</form>
+		</article>
+	</body>
+</html>
